@@ -3,7 +3,7 @@ php:
   - 7.2
 
 env:
-  - TRAVIS_NODE_VERSION="6"
+  - TRAVIS_NODE_VERSION="8"
 
 install:
   - export DISPLAY=':99.0'
@@ -12,9 +12,11 @@ install:
   - npm install
   
 before_script:
-  - mysql -e 'create database sitemaster_test;'
-  - php scripts/install.php
+  # - mysql -e 'create database sitemaster_test;'
+  # - php scripts/install.php
+  - composer install
   
 script:
   - ./vendor/bin/phpunit --verbose --testsuite core
+  # Already in core test suite?
   - ./vendor/bin/phpunit --verbose plugins/metric_links/tests
