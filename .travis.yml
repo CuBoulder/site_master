@@ -12,7 +12,7 @@ install:
   - npm install
   
 before_script:
-  # - mysql -e 'create database sitemaster_test;'
+  - mysql -e 'create database sitemaster_test;'
   # - php scripts/install.php
   - composer install
   
