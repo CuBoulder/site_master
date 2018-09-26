@@ -70,6 +70,6 @@ class H4Metric extends MetricInterface
      */
     public function scan($uri, \DOMXPath $xpath, $depth, Page $page, Logger\Metrics $logger)
     {
-
+        return false;
     }
 }
