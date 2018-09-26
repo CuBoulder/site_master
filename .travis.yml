@@ -6,7 +6,7 @@ php:
 addons:
   apt:
     packages:
-    - sendmail
+      - sendmail
 
 env:
   - TRAVIS_NODE_VERSION="8"
