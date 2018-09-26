@@ -5,7 +5,7 @@
  * Contains H4Metric class.
  */
 
-namespace SiteMaster\Plugins\H4Metric;
+namespace SiteMaster\Plugins\H4;
 
 use SiteMaster\Core\Auditor\MetricInterface;
 use SiteMaster\Core\Auditor\Logger;

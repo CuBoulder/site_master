@@ -5,7 +5,7 @@
  * Contains H4Plugin class.
  */
 
-namespace SiteMaster\Plugins\H4Metric;
+namespace SiteMaster\Plugins\H4;
 
 use SiteMaster\Core\Plugin\PluginInterface;
 
