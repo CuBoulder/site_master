@@ -343,8 +343,9 @@ class PluginManager
 
         echo '<pre>';
         print_r($class);
+        echo "\r\n";
         print_r($name);
-
+        echo "\r\n";
         echo '</pre>';
 
         //make sure that the passed options are an array
