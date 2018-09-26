@@ -12,6 +12,10 @@ env:
   - TRAVIS_NODE_VERSION="8"
 
 install:
+  # Check install of sendmail
+  - sendmail
+  - /usr/sbin/sendmail
+  
   - export DISPLAY=':99.0'
   - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
   - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION
@@ -19,10 +23,14 @@ install:
   
 before_script:
   - mysql -e 'create database sitemaster_test;'
+  
+  # Disable XDebug to speed up test runs.
+  - phpenv config-rm xdebug.ini
+  
   # - php scripts/install.php
   - composer install
   
 script:
   - ./vendor/bin/phpunit --verbose --testsuite core
   # Already in core test suite?...
-  - ./vendor/bin/phpunit --verbose plugins/metric_links/tests
+  # - ./vendor/bin/phpunit --verbose plugins/metric_links/tests
