@@ -341,8 +341,11 @@ class PluginManager
     public function getPluginInfo($name, $options = array()) {
         $class = $this->getPluginNamespaceFromName($name) . 'Plugin';
 
+        echo '<pre>';
         print_r($class);
         print_r($name);
+
+        echo '</pre>';
 
         //make sure that the passed options are an array
         $options = (array)$options;
