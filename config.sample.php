@@ -28,6 +28,7 @@ Config::set('PLUGINS', array(
         // 'weight' => 20, // Adjust weight if desired
         // 'service_url' => 'https://validator.unl.edu/', // adjust the service URL if desired
     ],
+    'H4' => [],
     'theme_foundation' => array('setting' => 'value'),
     'auth_google' => array(
         'security_salt' => '',
@@ -54,6 +55,7 @@ Config::set('GROUPS', [
                 // 'weight' => 20, // Adjust weight if desired
                 // 'service_url' => 'https://validator.unl.edu/', // adjust the service URL if desired
             ],
+            'H4' => [],
         ],
         //You can also set a few other settings on a group level
         //'SITE_PASS_FAIL' => false,
