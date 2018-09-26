@@ -11,7 +11,7 @@ use SiteMaster\Core\Auditor\MetricInterface;
 use SiteMaster\Core\Auditor\Logger;
 use SiteMaster\Core\Auditor\Site\Page;
 
-class H4Metric extends MetricInterface
+class Metric extends MetricInterface
 {
 
     /**
