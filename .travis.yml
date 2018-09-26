@@ -13,7 +13,7 @@ env:
 
 install:
   # Check install of sendmail
-  - ls -al /usr/local/bin
+  - ls -al /usr/lib/sm.bin
   # - sendmail
   - /usr/sbin/sendmail
   
