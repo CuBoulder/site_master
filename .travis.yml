@@ -13,7 +13,8 @@ env:
 
 install:
   # Check install of sendmail
-  - sendmail
+  - ls -al /usr/local/bin
+  # - sendmail
   - /usr/sbin/sendmail
   
   - export DISPLAY=':99.0'
