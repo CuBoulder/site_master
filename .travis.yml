@@ -1,6 +1,12 @@
 language: php
+
 php:
   - 7.2
+
+addons:
+  apt:
+    packages:
+    - sendmail
 
 env:
   - TRAVIS_NODE_VERSION="8"
