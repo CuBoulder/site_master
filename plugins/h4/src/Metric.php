@@ -71,10 +71,10 @@ class Metric extends MetricInterface
     public function scan($uri, \DOMXPath $xpath, $depth, Page $page, Logger\Metrics $logger)
     {
 
-        if (false === $this->headless_results || isset($this->headless_results['exception'])) {
-            //mark this metric as incomplete
-            throw new RuntimeException('headless results are required for the axe metric');
-        }
+//        if (false === $this->headless_results || isset($this->headless_results['exception'])) {
+//            //mark this metric as incomplete
+//            throw new RuntimeException('headless results are required for the axe metric');
+//        }
 
         // Log stuff for debugging purposes.
         $handle = fopen('/var/www/html/uri.json', 'w') or die('Cannot open file:');
