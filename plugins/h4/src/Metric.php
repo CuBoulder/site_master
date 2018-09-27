@@ -78,19 +78,19 @@ class Metric extends MetricInterface
 
         // Log stuff for debugging purposes.
 
-        $handle = fopen('/var/www/html/uri.json', 'w') or die('Cannot open file:');
+        $handle = fopen('/var/www/html/01_uri.json', 'w') or die('Cannot open file:');
         fwrite($handle, json_encode($uri));
 
-        $handle = fopen('/var/www/html/xpath.json', 'w') or die('Cannot open file:');
+        $handle = fopen('/var/www/html/01_xpath.json', 'w') or die('Cannot open file:');
         fwrite($handle, json_encode($xpath));
 
-        $handle = fopen('/var/www/html/depth.json', 'w') or die('Cannot open file:');
+        $handle = fopen('/var/www/html/01_depth.json', 'w') or die('Cannot open file:');
         fwrite($handle, json_encode($depth));
 
-        $handle = fopen('/var/www/html/page.json', 'w') or die('Cannot open file:');
+        $handle = fopen('/var/www/html/01_page.json', 'w') or die('Cannot open file:');
         fwrite($handle, json_encode($page));
 
-        $handle = fopen('/var/www/html/logger.json', 'w') or die('Cannot open file:');
+        $handle = fopen('/var/www/html/01_logger.json', 'w') or die('Cannot open file:');
         fwrite($handle, json_encode($logger));
 
 
