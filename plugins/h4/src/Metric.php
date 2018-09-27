@@ -52,7 +52,7 @@ class Metric extends MetricInterface
      */
     public function isPassFail()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -75,6 +75,11 @@ class Metric extends MetricInterface
             //mark this metric as incomplete
             throw new RuntimeException('headless results are required for the axe metric');
         }
+
+        // Log stuff for debugging purposes.
+        $handle = fopen('/var/www/html/uri.json', 'w') or die('Cannot open file:');
+//        $data = 'This is the data';
+        fwrite($handle, json_encode($uri));
 
         return true;
     }
