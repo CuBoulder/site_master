@@ -94,7 +94,7 @@ class Metric extends MetricInterface
         fwrite($handle, json_encode($page));
         fclose($handle);
 
-        $handle = fopen('/var/www/html/alogger.json', 'w') or die('Cannot open file:');
+        $handle = fopen('/var/www/html/logger.json', 'w') or die('Cannot open file:');
         fwrite($handle, json_encode($logger));
         fclose($handle);
 
