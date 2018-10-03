@@ -40,7 +40,7 @@ $site_title = \SiteMaster\Core\Config::get('SITE_TITLE');
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/v4-shims.css">
 </head>
-<body>
+<body class="background-color-black">
   <div class="background-black padding-small"><script type="text/javascript" src="//cuboulder.github.io/brand-assets/js/brand-bar.js" id="ucb-brand-bar-embed" data-color="black"></script></div>
   <header class="ucb light">
     <div class="padding-horizontal-small">
@@ -105,7 +105,7 @@ $site_title = \SiteMaster\Core\Config::get('SITE_TITLE');
     </section>
 </nav>
 
-<div class="padding-vertical-large">
+<div class="background-white padding-vertical-large">
   <div class="row">
       <div class="large-12 columns">
           <?php
@@ -157,13 +157,13 @@ $site_title = \SiteMaster\Core\Config::get('SITE_TITLE');
   </div>
 </div>
 
-<div id="footer">
+<div id="footer" class="background-black padding-vertical-large">
   <div class="row">
     <div class="large-6  columns">
       <p><a href="<?php echo \SiteMaster\Core\Config::get('URL')?>"><strong>Site Master</strong></a> is a resource provided by <a href="https://www.colorado.edu/strategicrelations">Strategic Relations and Communications</a>.</p>
     </div>
     <div class="large-4 large-offset-2 columns">
-      <script type="text/javascript" src="//cuboulder.github.io/brand-assets/js/footer.js" id="ucb-footer-embed" data-color="black"></script>
+      <script type="text/javascript" src="//cuboulder.github.io/brand-assets/js/footer.js" id="ucb-footer-embed" data-color="white"></script>
     </div>
   </div>
 </div>
