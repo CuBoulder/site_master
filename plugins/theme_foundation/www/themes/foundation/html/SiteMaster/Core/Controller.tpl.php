@@ -9,7 +9,7 @@ $site_title = \SiteMaster\Core\Config::get('SITE_TITLE');
     <title><?php echo $site_title ?></title>
     <link rel="stylesheet" href="<?php echo \SiteMaster\Core\Config::get('URL') ?>plugins/theme_foundation/www/themes/foundation/html/css/foundation.css" />
     <script src="<?php echo \SiteMaster\Core\Config::get('URL') ?>plugins/theme_foundation/www/themes/foundation/html/js/modernizr.js"></script>
-    
+
     <?php
     $style_sheets_event = \SiteMaster\Core\Plugin\PluginManager::getManager()->dispatchEvent(
         \SiteMaster\Core\Events\Theme\RegisterStyleSheets::EVENT_NAME,
@@ -21,7 +21,7 @@ $site_title = \SiteMaster\Core\Config::get('SITE_TITLE');
         <link rel="stylesheet" href="<?php echo $url?>" media="<?php echo $media ?>"/>
         <?php
     }
-    
+
     $scripts_event = \SiteMaster\Core\Plugin\PluginManager::getManager()->dispatchEvent(
         \SiteMaster\Core\Events\Theme\RegisterScripts::EVENT_NAME,
         new \SiteMaster\Core\Events\Theme\RegisterScripts()
@@ -33,17 +33,27 @@ $site_title = \SiteMaster\Core\Config::get('SITE_TITLE');
         <?php
     }
     ?>
+
+
+    <link rel="stylesheet" href="https://cuboulder.github.io/styleguide//css/ucb-styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed:700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/v4-shims.css">
 </head>
 <body>
+  <div class="background-black padding-small"><script type="text/javascript" src="//cuboulder.github.io/brand-assets/js/brand-bar.js" id="ucb-brand-bar-embed" data-color="black"></script></div>
+  <header class="ucb light">
+    <div class="padding-horizontal-small">
+      <a href="<?php echo \SiteMaster\Core\Config::get('URL')?>">Site Master</a>
+    </div>
+  </header>
 <nav class="top-bar" data-topbar>
     <ul class="title-area">
-        <li class="name">
-            <h1><a href="<?php echo \SiteMaster\Core\Config::get('URL')?>">Site Master</a></h1>
-        </li>
+
     </ul>
     <section class="top-bar-section">
         <!-- Left Nav Section -->
-        <ul class="left has-dropdown">
+        <ul class="left has-dropdown padding-none">
             <?php
             $mainNav = \SiteMaster\Core\Plugin\PluginManager::getManager()->dispatchEvent(
                 \SiteMaster\Core\Events\Navigation\MainCompile::EVENT_NAME,
@@ -78,7 +88,7 @@ $site_title = \SiteMaster\Core\Config::get('SITE_TITLE');
                         <li>
                             <?php
                             $authPlugins = \Sitemaster\Core\Plugin\PluginManager::getManager()->getAuthPlugins();
-                            
+
                             foreach ($authPlugins as $plugin) {
                                 ?>
                                 <a href="<?php echo $plugin->getLoginURL(); ?>"><?php echo $plugin->getProviderHumanName() ?></a>
@@ -95,58 +105,67 @@ $site_title = \SiteMaster\Core\Config::get('SITE_TITLE');
     </section>
 </nav>
 
-<div class="row">
-    <div class="large-12 columns">
-        <?php
-        foreach ($app->getFlashBagMessages() as $message) {
-            echo $savvy->render($message);
-        }
-        ?>
-    </div>
-</div>
+<div class="padding-vertical-large">
+  <div class="row">
+      <div class="large-12 columns">
+          <?php
+          foreach ($app->getFlashBagMessages() as $message) {
+              echo $savvy->render($message);
+          }
+          ?>
+      </div>
+  </div>
 
-<div class="row">
-    <div class="large-12 columns">
-        <h1><?php echo $context->output->getPageTitle() ?></h1>
-    </div>
-</div>
+  <div class="row">
+      <div class="large-12 columns">
+          <h1><?php echo $context->output->getPageTitle() ?></h1>
+      </div>
+  </div>
 
-<div class="row">
-    <div class="large-12 columns">
-        <?php
-        if (isset($app->options['site_id'])) {
-            $site = \SiteMaster\Core\Registry\Site::getByID($app->options['site_id']);
-            if ($site) {
-                $siteNav = \SiteMaster\Core\Plugin\PluginManager::getManager()->dispatchEvent(
-                    \SiteMaster\Core\Events\Navigation\SiteCompile::EVENT_NAME,
-                    new \SiteMaster\Core\Events\Navigation\SiteCompile($site)
-                );
-        
-                echo $savvy->render($siteNav);
-            }
-        }
-        ?>
-    </div>
-</div>
+  <div class="row">
+      <div class="large-12 columns">
+          <?php
+          if (isset($app->options['site_id'])) {
+              $site = \SiteMaster\Core\Registry\Site::getByID($app->options['site_id']);
+              if ($site) {
+                  $siteNav = \SiteMaster\Core\Plugin\PluginManager::getManager()->dispatchEvent(
+                      \SiteMaster\Core\Events\Navigation\SiteCompile::EVENT_NAME,
+                      new \SiteMaster\Core\Events\Navigation\SiteCompile($site)
+                  );
 
-<div class="row">
-    <div class="large-12 columns">
-        <?php
-        $prepend = \SiteMaster\Core\Plugin\PluginManager::getManager()->dispatchEvent(
-            \SiteMaster\Core\Events\Theme\PrependOutput::EVENT_NAME,
-            new \SiteMaster\Core\Events\Theme\PrependOutput($context->output->getRawObject(), $app->options['format'])
-        );
+                  echo $savvy->render($siteNav);
+              }
+          }
+          ?>
+      </div>
+  </div>
 
-        foreach ($prepend->getPrepend() as $item) {
-            echo $savvy->render($item);
-        }
-        echo $savvy->render($context->output);
-        ?>
-    </div>
+  <div class="row">
+      <div class="large-12 columns">
+          <?php
+          $prepend = \SiteMaster\Core\Plugin\PluginManager::getManager()->dispatchEvent(
+              \SiteMaster\Core\Events\Theme\PrependOutput::EVENT_NAME,
+              new \SiteMaster\Core\Events\Theme\PrependOutput($context->output->getRawObject(), $app->options['format'])
+          );
+
+          foreach ($prepend->getPrepend() as $item) {
+              echo $savvy->render($item);
+          }
+          echo $savvy->render($context->output);
+          ?>
+      </div>
+  </div>
 </div>
 
 <div id="footer">
-    
+  <div class="row">
+    <div class="large-6  columns">
+      <p><a href="<?php echo \SiteMaster\Core\Config::get('URL')?>"><strong>Site Master</strong></a> is a resource provided by <a href="https://www.colorado.edu/strategicrelations">Strategic Relations and Communications</a>.</p>
+    </div>
+    <div class="large-4 large-offset-2 columns">
+      <script type="text/javascript" src="//cuboulder.github.io/brand-assets/js/footer.js" id="ucb-footer-embed" data-color="black"></script>
+    </div>
+  </div>
 </div>
 
 <script src="<?php echo \SiteMaster\Core\Config::get('URL') ?>plugins/theme_foundation/www/themes/foundation/html/js/foundation.min.js"></script>
