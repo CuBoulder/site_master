@@ -32,6 +32,17 @@ $savvy->addGlobal('grading_helper', new \SiteMaster\Core\Auditor\GradingHelper()
 $savvy->addGlobal('base_url', \SiteMaster\Core\Util::getAbsoluteBaseURL());
 $savvy->addGlobal('theme_helper', new \SiteMaster\Core\ThemeHelper());
 $savvy->addGlobal('csrf_helper', \SiteMaster\Core\Controller::getCSRFHelper());
+$savvy->addGlobal('csrf_helper', \SiteMaster\Core\Controller::getCSRFHelper());
+
+// Add root directory for other scripts to use.
+// @todo See if this is injected anywhere else.
+$app->root_dir = __DIR__;
+
+// Add any more globals based on model used.
+// Instance of model is loaded at $app->output.
+if (method_exists($app->output, 'getThemeData')) {
+  $savvy->addGlobal('data', $app->output->getThemeData($app->options['current_url']));
+}
 
 $savvy->addGlobal('scan', false);
 if (isset($app->options['scans_id']) && $scan = \SiteMaster\Core\Auditor\Scan::getById($app->options['scans_id'])) {

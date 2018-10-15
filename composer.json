@@ -36,7 +36,8 @@
         "michelf/php-markdown": "1.4.*@dev",
         "masterminds/html5": "2.*",
         "guzzlehttp/guzzle": "~3.7",
-        "paragonie/anti-csrf": "^1"
+        "paragonie/anti-csrf": "^1",
+        "league/csv": "^9.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^7"

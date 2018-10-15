@@ -14,5 +14,8 @@ data/database.mwb.bak
 /scripts/sitemaster_phantom_complied.js
 /scripts/sitemaster_phantom_complied_test.js
 .vscode/
-/plugins/
 /node_modules/
+
+# Plugins in other repos.
+/plugins/metric_axe
+/plugins/metric_w3c_html
