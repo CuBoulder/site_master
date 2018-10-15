@@ -15,16 +15,17 @@ class Plugin extends PluginInterface {
    * @return mixed
    */
   public function onInstall() {
-    return true;
+    return TRUE;
   }
 
   /**
-   * Please undo whatever you did in onInstall().  If you don't, someone might have a bad day.
+   * Please undo whatever you did in onInstall().  If you don't, someone might
+   * have a bad day.
    *
    * @return mixed
    */
   public function onUnInstall() {
-    return true;
+    return TRUE;
   }
 
   /**
@@ -35,7 +36,7 @@ class Plugin extends PluginInterface {
    * @return mixed
    */
   public function onUpdate($previousVersion) {
-    return true;
+    return TRUE;
   }
 
   /**
@@ -57,7 +58,7 @@ class Plugin extends PluginInterface {
    * @return mixed
    */
   public function getVersion() {
-    return true;
+    return TRUE;
   }
 
   /**
@@ -79,19 +80,15 @@ class Plugin extends PluginInterface {
     $listener = new Listener($this);
 
     $listeners[] = array(
-      'event'    => RoutesCompile::EVENT_NAME,
-      'listener' => array($listener, 'onRoutesCompile')
+      'event' => RoutesCompile::EVENT_NAME,
+      'listener' => array($listener, 'onRoutesCompile'),
     );
 
     $listeners[] = array(
-      'event'    => RegisterTheme::EVENT_NAME,
-      'listener' => array($listener, 'onRegisterTheme')
-    );
-
-    $listeners[] = array(
-      'event'    => \SiteMaster\Core\Events\Navigation\MainCompile::EVENT_NAME,
-      'listener' => array($listener, 'onNavigationMainCompile')
+      'event' => \SiteMaster\Core\Events\Navigation\MainCompile::EVENT_NAME,
+      'listener' => array($listener, 'onNavigationMainCompile'),
     );
 
     return $listeners;
-}}
+  }
+}
